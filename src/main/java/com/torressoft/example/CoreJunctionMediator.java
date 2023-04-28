@@ -2,7 +2,6 @@ package com.torressoft.example;
 
 import org.puremvc.java.multicore.interfaces.INotification;
 import org.puremvc.java.multicore.utilities.pipes.interfaces.IPipeAware;
-import org.puremvc.java.multicore.utilities.pipes.interfaces.IPipeFitting;
 import org.puremvc.java.multicore.utilities.pipes.interfaces.IPipeMessage;
 import org.puremvc.java.multicore.utilities.pipes.messages.Message;
 import org.puremvc.java.multicore.utilities.pipes.plumbing.*;
@@ -26,7 +25,7 @@ public class CoreJunctionMediator extends JunctionMediator {
     @Override
         public String[] listNotificationInterests() {
             return new String[]{
-                    CoreFacade.CONNECT_INPUT_PIPE
+                    CoreFacade.CONNECT_MODULE_TO_CORE
                     , SEND_MESSAGE
             };
         }
@@ -35,7 +34,7 @@ public class CoreJunctionMediator extends JunctionMediator {
         public void handleNotification(INotification notification) {
 
             switch (notification.getName()) {
-                case CoreFacade.CONNECT_INPUT_PIPE:
+                case CoreFacade.CONNECT_MODULE_TO_CORE:
                     Object module = notification.getBody();
                     if (!(module instanceof IPipeAware)) {
                         return;
@@ -65,6 +64,6 @@ public class CoreJunctionMediator extends JunctionMediator {
         @Override
         public void handlePipeMessage(IPipeMessage message) {
             super.handlePipeMessage(message);
-            System.out.println(getFacade().toString() + message);
+            System.out.println(getFacade().toString() + message.getBody());
         }
 }

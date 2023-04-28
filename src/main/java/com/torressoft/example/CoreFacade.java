@@ -8,8 +8,7 @@ import org.puremvc.java.multicore.utilities.pipes.plumbing.JunctionMediator;
 
 public class CoreFacade extends Facade implements IFacade, IPipeAware {
 
-    public static final String CONNECT_INPUT_PIPE = "ConnectInputPipe";
-    public static final String INPUT_PIPE = "InputPipe";
+    public static final String CONNECT_MODULE_TO_CORE = "ConnectModuleToCore";
     public static final String OUTPUT_TEESPLIT = "OutputTeeSplit";
     public static final String INPUT_TEEMERGE = "OutputTeeMerge";
     public static final String MODULE_INPUT_PIPE = "ModuleInputPipe";
@@ -25,11 +24,6 @@ public class CoreFacade extends Facade implements IFacade, IPipeAware {
             instance = new CoreFacade(name);
         }
         return instance;
-    }
-
-
-    public void run() {
-        System.out.println("Hello World!");
     }
 
     @Override

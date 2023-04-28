@@ -1,7 +1,6 @@
 package com.torressoft.example;
 
 import org.puremvc.java.multicore.interfaces.INotification;
-import org.puremvc.java.multicore.utilities.pipes.interfaces.IPipeFitting;
 import org.puremvc.java.multicore.utilities.pipes.interfaces.IPipeMessage;
 import org.puremvc.java.multicore.utilities.pipes.plumbing.Junction;
 import org.puremvc.java.multicore.utilities.pipes.plumbing.JunctionMediator;
@@ -25,6 +24,6 @@ public class ModuleJuntionMediator extends JunctionMediator {
     @Override
     public void handlePipeMessage(IPipeMessage message) {
         super.handlePipeMessage(message);
-        System.out.println(getFacade().toString() + message);
+        System.out.println(getFacade().toString() + message.getBody());
     }
 }
